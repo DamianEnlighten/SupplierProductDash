@@ -1,0 +1,49 @@
+/*Cascade Deletes for Suppliers*/
+BEGIN TRANSACTION
+ALTER TABLE dbo.Products
+	DROP CONSTRAINT FK_Products_Suppliers
+GO
+ALTER TABLE dbo.Suppliers SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.Products WITH NOCHECK ADD CONSTRAINT
+	FK_Products_Suppliers FOREIGN KEY
+	(
+	SupplierID
+	) REFERENCES dbo.Suppliers
+	(
+	SupplierID
+	) ON UPDATE  NO ACTION 
+	 ON DELETE  CASCADE 
+	
+GO
+ALTER TABLE dbo.Products SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+/*Cascade Deletes for Products to Order_Details to Allow Deletion*/
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.[Order Details]
+	DROP CONSTRAINT FK_Order_Details_Products
+GO
+ALTER TABLE dbo.Products SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.[Order Details] WITH NOCHECK ADD CONSTRAINT
+	FK_Order_Details_Products FOREIGN KEY
+	(
+	ProductID
+	) REFERENCES dbo.Products
+	(
+	ProductID
+	) ON UPDATE  NO ACTION 
+	 ON DELETE  CASCADE 
+	
+GO
+ALTER TABLE dbo.[Order Details] SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
