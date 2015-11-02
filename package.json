@@ -1,0 +1,22 @@
+{
+  "name": "CodeExcerise",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node ./routes/app.js"
+  },
+  "dependencies": {
+    "body-parser": "~1.12.4",
+    "ejs": "^2.3.2",
+    "express": "~4.12.4",
+    "path": "^0.11.14",
+    "sql": "^0.62.0",
+    "tedious": "^1.13.1"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-uglify": "~0.2.7",
+    "grunt-contrib-cssmin": "0.10.0"
+  }
+}

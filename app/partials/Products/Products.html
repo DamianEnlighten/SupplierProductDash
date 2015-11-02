@@ -1,0 +1,26 @@
+<md-content layout="column" flex class="md-padding md-whiteframe-4dp">
+    <span class="md-headline" ng-hide="product.ProductID">Create Product</span>
+    <span class="md-headline" ng-show="product.ProductID">Update {{product.ProductName}}</span>
+    <form name="ProductForm">
+        <md-input-container>
+            <label>Name</label>
+            <input type="text" required name="ProductName" placeholder="Name" ng-model="product.ProductName" maxlength="40" />
+            <div ng-messages="ProductForm.ProductName.$error">
+                <div ng-message="required">Please Enter A Product Name</div>
+            </div>
+        </md-input-container>
+        <md-input-container>
+            <label>Supplier</label>
+            <md-select required name="SupplierID" placeholder="Supplier" ng-model="product.SupplierID">
+                <md-option ng-value="supplier.SupplierID" ng-repeat="supplier in suppliers">{{ supplier.CompanyName }}</md-option>
+            </md-select>
+            <div ng-messages="ProductForm.SupplierID.$error">
+                <div ng-message="required">Please Select A Supplier</div>
+            </div>
+        </md-input-container>
+        <md-button class="md-primary md-raised" ng-hide="product.ProductID" ng-click="create()">Create</md-button>
+        <md-button class="md-primary md-raised" ng-show="product.ProductID" ng-click="edit()">Update</md-button>
+        <md-button class="md-primary md-raised" ng-show="product.ProductID" ng-click="delete()">Delete</md-button>
+        <md-button class="md-primary md-raised" ng-click="cancel()">Cancel</md-button>
+    </form>
+</md-content>

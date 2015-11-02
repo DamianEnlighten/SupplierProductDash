@@ -1,0 +1,18 @@
+<md-content layout="column" flex class="md-padding md-whiteframe-4dp">
+    <span class="md-headline" ng-hide="supplier.SupplierID">Create Supplier</span>
+    <span class="md-headline" ng-show="supplier.SupplierID">Update {{supplier.CompanyName}}</span>
+    <form name="SupplierForm">
+        <md-input-container>
+            <label>Company Name</label>
+            <input required type="text" name="CompanyName" placeholder="Company Name" ng-model="supplier.CompanyName" maxlength="40" />
+            <div ng-messages="SupplierForm.CompanyName.$error">
+                <div ng-message="required">Please Enter a Company Name</div>
+            </div>
+        </md-input-container>
+
+        <md-button class="md-primary md-raised" ng-hide="supplier.SupplierID" ng-click="create()">Create</md-button>
+        <md-button class="md-primary md-raised" ng-show="supplier.SupplierID" ng-click="edit()">Update</md-button>
+        <md-button class="md-primary md-raised" ng-show="supplier.SupplierID" ng-click="delete()">Delete</md-button>
+        <md-button class="md-primary md-raised" ng-click="cancel()">Cancel</md-button>
+    </form>
+</md-content>

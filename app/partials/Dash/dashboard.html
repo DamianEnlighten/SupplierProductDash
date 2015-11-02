@@ -1,0 +1,67 @@
+<div flex="15" layout="column" class="md-sidenav-left md-whiteframe-4dp md-accent md-hue-1" ng-include="'partials/SideNav.html'" md-is-locked-open="true">
+</div>
+<md-content layout="column" flex class="md-padding md-whiteframe-4dp ">
+    <div ng-hide="showProducts" flex layout="column">
+        <h1 class="md-headline noM">
+            Suppliers
+            <md-button flex class="md-raised md-primary" ng-click="createSupplier()">Create Supplier</md-button>
+        </h1>
+        <md-input-container>
+            <label>Search Suppliers</label>
+            <input type="text" placeholder="Search Suppliers" ng-model="sSearch" ng-change="supplierTable.filter(sSearch)" />
+        </md-input-container>
+        <table ng-table="supplierTable">
+            <tr ng-repeat="supplier in $data track by $index" class="clickable" ng-click="showSupplierProducts(supplier)" ng-hide="loading">
+                <td data-title="'Supplier ID'" sortable="'SupplierID'" class="shrink">
+                    {{supplier.SupplierID}}
+                </td>
+                <td data-title="'Company Name'" sortable="'CompanyName'" class="expand">
+                    {{supplier.CompanyName}}
+                </td>
+                <td ng-click="$event.stopPropagation()">
+                    <md-button class="md-raised md-primary" ng-click="editSupplier(supplier)">Edit</md-button>
+                    <md-button class="md-raised md-primary" ng-click="deleteSupplier(supplier)">Delete</md-button>
+                </td>
+            </tr>
+            <tr ng-hide="$data.length>0 || loading"><td colspan="3"><h4>No Suppliers Found</h4></td></tr>
+            <tr ng-show="loading"><td colspan="3"><h4>Loading...</h4></td></tr>
+        </table>
+    </div>
+
+    <div ng-show="showProducts" flex layout="column">
+        <h1 class="md-headline noM">
+            <sm-button class="sm-fab clickable" aria-label="back" ng-click="back()" ng-show="supplier.SupplierID">
+                <md-tooltip>
+                    Back
+                </md-tooltip>
+                <md-icon md-svg-src="img/back.svg"></md-icon>
+            </sm-button>
+            Products
+            <span ng-show="supplier">- {{supplier.CompanyName}}</span>
+            <md-button flex class="md-raised md-primary" ng-click="createProduct()">Create Product</md-button>
+        </h1>
+        <md-input-container>
+            <label>Search Products</label>
+            <input type="text" placeholder="Search Products" ng-model="pSearch" ng-change="productTable.filter(pSearch)" />
+        </md-input-container>
+
+        <table ng-table="productTable">
+            <tr ng-repeat="product in $data track by $index" ng-hide="loading">
+                <td data-title="'Product ID'" sortable="'ProductID'" class="shrink">
+                    {{product.ProductID}}
+                </td>
+                <td data-title="'Product Name'" sortable="'ProductName'" class="expand">
+                    {{product.ProductName}}
+                </td>
+                <td data-title="'Supplier ID'" sortable="'SupplierID'" class="shrink">
+                    {{product.SupplierID}}
+                </td>
+                <td ng-click="$event.stopPropagation()">
+                    <md-button class="md-raised md-primary" ng-click="editProduct(product)">Edit</md-button>
+                    <md-button class="md-raised md-primary" ng-click="deleteProduct(product)">Delete</md-button>
+                </td>
+            </tr>
+            <tr ng-hide="$data.length>0 || loading"><td colspan="2"><h4>No Products Found</h4></td></tr>
+        </table>
+    </div>
+</md-content>

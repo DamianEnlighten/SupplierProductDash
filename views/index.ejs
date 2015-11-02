@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="App">
+<head>
+    <base href="/">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code Exercise</title>
+    <link id="FavIcon" rel="icon" type="image/png" href="" />
+    <!--CSS-->
+    <link type="text/css" href="css/StyleSheet.min.css" rel="stylesheet" media="all">
+    <!-- Plugins CSS -->
+    <link type="text/css" href="css/sweet-alert.css" rel="stylesheet" media="all" />
+	<link type="text/css" href="css/toastr.css" rel="stylesheet" media="all" />
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.11.2/angular-material.min.css">
+</head>
+<body layout="column">
+<toastr-container></toastr-container>
+        <md-toolbar layout="row" ng-include="'partials/header.html'" class="md-whiteframe-4dp md-primary pageHeader"></md-toolbar>	
+        <div flex layout="row" flex id="content" ui-view></div>
+    <!-- jQuery Core/UI -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="lib/sweet-alert.js"></script>
+    <!-- Angular Stuff -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.min.js"></script>
+	<script src="lib/angular-ui-router.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular-animate.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular-aria.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular-messages.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angular_material/0.11.2/angular-material.min.js"></script>
+	<script type="text/javascript" src="lib/ng-table.js"></script>
+    <script type="text/javascript" src="lib/angular-SweetAlert.js"></script>
+	<script type="text/javascript" src="lib/toastr.js"></script>
+    <!--App -->
+    <script type="text/javascript" src="dist/CodeExcerise.min.js"></script>
+</body>
+</html>

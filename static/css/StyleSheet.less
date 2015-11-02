@@ -1,0 +1,152 @@
+﻿body {
+    padding: 2em;
+}
+
+a {
+    text-decoration: none;
+    line-height: inherit;
+}
+
+.pageHeader {
+    padding: 0 1em;
+}
+
+.header {
+    color: #DDD;
+    background-color: #3F51B5;
+    padding: 1em;
+    text-align: left;
+}
+
+th {
+    cursor: pointer;
+}
+
+th.sort-asc div {
+    background-image: url("../img/asc.svg");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 2em;
+}
+
+th.sort-desc div {
+    background-image: url("../img/desc.svg");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 2em;
+}
+
+#content {
+    margin: 2em;
+}
+
+.md-button.lightTxtBtn {
+    background: #3F51B5;
+}
+
+.lightTxtBtn span {
+    color: #E8EAF6;
+}
+
+.md-sidenav-left {
+    width: 7em;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+table {
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table td {
+    padding: 0 1em;
+}
+
+ul.pagination {
+    list-style: none;
+    display: block;
+    min-height: 1.5rem;
+    margin-left: -0.3125rem;
+}
+
+ul.pagination li {
+    float: left;
+    display: block;
+    height: 1.5rem;
+    color: #222;
+    font-size: 0.875rem;
+    margin-left: 0.3125rem;
+}
+
+ul.pagination li a {
+    display: block;
+    padding: 0.0625rem 0.625rem 0.0625rem;
+    color: #999;
+    border-radius: 3px;
+}
+
+ul.pagination li.disabled a span {
+    background: #3F51B5;
+    font-weight: bold;
+    color: #F1F1F1;
+    padding: 0.025rem 0.325rem 0.0625rem;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+tr:hover {
+    background-color: #DDD;
+}
+
+.noM {
+    margin: 0 !important;
+}
+
+.noP {
+    padding: 0 !important;
+}
+
+.ng-hide-add{
+    -webkit-animation:slide-out .5s linear;
+  animation:slide-out .5s linear;
+  z-index:1;
+  position:absolute;
+  background:#FFF;
+  border:2px solid #DDD;
+  width:100%;
+}
+
+.ng-hide-remove{
+     -webkit-animation:slide-in .5s linear;
+  animation:slide-in .5s linear;
+  z-index:2;
+  position:absolute;
+  background:#FFF;
+  border:2px solid #DDD;
+  width:100%;
+}
+@keyframes slide-out {
+    from {
+        -webkit-transform: translate(0);
+        transform:translate(0);
+    }
+    to {
+        -webkit-transform: translate(-100%);
+        transform:translate(-100%);
+    }
+}
+@keyframes slide-in {
+    from {
+        -webkit-transform: translate(-100%);
+        transform:translate(-100%);
+    }
+    to {
+        -webkit-transform: translate(0);
+        transform:translate(0);
+    }
+}
